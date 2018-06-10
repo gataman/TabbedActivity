@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
          * The fragment argument representing the section number for this
          * fragment.
          */
-        private static final String ARG_SECTION_NUMBER = "section_number";
+        private static final String POSITION = "section_number";
 
         public PlaceholderFragment() {
         }
@@ -116,10 +116,10 @@ public class MainActivity extends AppCompatActivity {
          * Returns a new instance of this fragment for the given section
          * number.
          */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
+        public static PlaceholderFragment newInstance(int position) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+            args.putInt(POSITION, position);
             fragment.setArguments(args);
             return fragment;
         }
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             List<Sorular> sorularList = ((MainActivity)getActivity()).getSorularList();
-            int position = getArguments().getInt(ARG_SECTION_NUMBER);
+            int position = getArguments().getInt(POSITION);
 
             TextView soru = rootView.findViewById(R.id.tvSoru);
             TextView cevapA = rootView.findViewById(R.id.tvCevapA);
